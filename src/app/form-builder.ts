@@ -1,17 +1,23 @@
 import {Component} from 'angular2/core';
+import {RouterOutlet, RouterLink, RouteConfig} from 'angular2/router';
+import {FormBuilderEdit} from './form-builder-edit';
+import {FormBuilderPreview} from './form-builder-preview';
 
-
+@RouteConfig([
+  {path: '/edit', name: 'Edit', component: FormBuilderEdit, useAsDefault: true},
+  {path: '/preview', name: 'Preview', component: FormBuilderPreview}
+])
 @Component({
   selector: 'form-builder-app',
-  providers: [],
-  templateUrl: 'app/form-builder.html',
-  directives: [],
-  pipes: []
+  template: `
+    <nav>
+      <a [routerLink]="['Edit']">Edit</a>
+      <a [routerLink]="['Preview']">Preview</a>
+    </nav>
+    <router-outlet></router-outlet>
+  `,
+  directives: [RouterOutlet, RouterLink]
 })
 export class FormBuilderApp {
-  defaultMeaning: number = 42;
-  
-  meaningOfLife(meaning) {
-    return `The meaning of life is ${meaning || this.defaultMeaning}`;
-  }
+
 }
