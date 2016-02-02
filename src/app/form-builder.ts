@@ -2,6 +2,8 @@ import {Component} from 'angular2/core';
 import {RouterOutlet, RouterLink, RouteConfig} from 'angular2/router';
 import {FormBuilderEdit} from './form-builder-edit';
 import {FormBuilderPreview} from './form-builder-preview';
+import {ControlEditorTitle} from './control-editor-title';
+import {ControlEditorList} from './control-editor-list';
 
 @RouteConfig([
   {path: '/edit', name: 'Edit', component: FormBuilderEdit, useAsDefault: true},
